@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather_forecast_app/controller/global_controller.dart';
+import 'package:weather_forecast_app/presentation/widgets/current_weather_widget.dart';
+import 'package:weather_forecast_app/presentation/widgets/daily_data_forecast.dart';
 import 'package:weather_forecast_app/presentation/widgets/header_widget.dart';
+import 'package:weather_forecast_app/presentation/widgets/hourly_data_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,8 +14,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GlobaController globaController =
-      Get.put(GlobaController(), permanent: true);
+  final GlobalController globaController =
+      Get.put(GlobalController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +26,29 @@ class _HomeScreenState extends State<HomeScreen> {
               ? Center(
                   child: CircularProgressIndicator(),
                 )
-              : ListView(
-                  scrollDirection: Axis.vertical,
-                  children: const [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    HeaderWidget(),
-                  ],
+              : Center(
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      SizedBox(
+                        height: 20,
+                      ),
+                      HeaderWidget(),
+                      // for our current temp ('current)
+                      CurrentWeatherWidget(
+                        weatherDataCurrent:
+                            globaController.getData().getCurrentWeather(),
+                      ),
+                      HourlyDataWidget(
+                        weathreDataHourly:
+                            globaController.getData().getHourlyWeather(),
+                      ),
+                      DailyDataForecast(
+                        weatherDataDaily:
+                            globaController.getData().getDailyWeather(),
+                      ),
+                    ],
+                  ),
                 ),
         ),
       ),

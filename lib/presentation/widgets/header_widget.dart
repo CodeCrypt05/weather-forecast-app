@@ -14,8 +14,8 @@ class HeaderWidget extends StatefulWidget {
 class _HeaderWidgetState extends State<HeaderWidget> {
   String date = DateFormat("yMMMd").format(DateTime.now());
   String city = "";
-  final GlobaController globaController =
-      Get.put(GlobaController(), permanent: true);
+  final GlobalController globaController =
+      Get.put(GlobalController(), permanent: true);
 
   @override
   void initState() {
