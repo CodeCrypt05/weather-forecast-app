@@ -11,7 +11,7 @@ class DailyDataForecast extends StatelessWidget {
   // string manipulation
   String getDay(final day) {
     DateTime time = DateTime.fromMillisecondsSinceEpoch(day * 1000);
-    final x = DateFormat('MMM').format(time);
+    final x = DateFormat('EEE').format(time);
     return x;
   }
 
@@ -62,7 +62,7 @@ class DailyDataForecast extends StatelessWidget {
                           width: 80,
                           child: Text(
                             getDay(weatherDataDaily.daily[index].dt),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: CustomColors.textColorBlack,
                                 fontSize: 14),
                           ),
@@ -74,7 +74,7 @@ class DailyDataForecast extends StatelessWidget {
                               "assets/weather/${weatherDataDaily.daily[index].weather![0].icon}.png"),
                         ),
                         Text(
-                            "${weatherDataDaily.daily[index].temp!.max}°/${weatherDataDaily.daily[index].temp!.min}"),
+                            "${(weatherDataDaily.daily[index].temp!.max! - 273.15).toInt()}°/${(weatherDataDaily.daily[index].temp!.min! - 273.15).toInt()}"),
                       ],
                     )),
                 Container(

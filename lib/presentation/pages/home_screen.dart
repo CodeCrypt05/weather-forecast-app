@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather_forecast_app/controller/global_controller.dart';
+import 'package:weather_forecast_app/presentation/utils/custom_color.dart';
+import 'package:weather_forecast_app/presentation/widgets/comfart_level.dart';
 import 'package:weather_forecast_app/presentation/widgets/current_weather_widget.dart';
 import 'package:weather_forecast_app/presentation/widgets/daily_data_forecast.dart';
 import 'package:weather_forecast_app/presentation/widgets/header_widget.dart';
@@ -47,6 +49,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         weatherDataDaily:
                             globaController.getData().getDailyWeather(),
                       ),
+                      Container(
+                        height: 1,
+                        color: CustomColors.dividerLine,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      ComfartLevel(
+                          weathreDataCurrent:
+                              globaController.getData().getCurrentWeather())
                     ],
                   ),
                 ),
