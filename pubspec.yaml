@@ -42,6 +42,10 @@ dependencies:
   get: ^4.6.6
   intel_hex: ^1.2.1
   intl: ^0.18.1
+  lottie: ^2.7.0
+  permission_handler: ^11.0.1
+  location: ^5.0.3
+  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +73,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/weather/
+    - animations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -7,6 +7,7 @@ import 'package:weather_forecast_app/presentation/widgets/current_weather_widget
 import 'package:weather_forecast_app/presentation/widgets/daily_data_forecast.dart';
 import 'package:weather_forecast_app/presentation/widgets/header_widget.dart';
 import 'package:weather_forecast_app/presentation/widgets/hourly_data_widget.dart';
+import 'package:weather_forecast_app/presentation/widgets/loading_animation.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,11 +23,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: null,
       body: SafeArea(
         child: Obx(
           () => globaController.checkLoadiing().isTrue
               ? Center(
-                  child: CircularProgressIndicator(),
+                  child: LoadingAnimation(),
                 )
               : Center(
                   child: ListView(

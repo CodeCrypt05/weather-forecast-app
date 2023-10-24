@@ -1,4 +1,4 @@
-import 'package:weather_forecast_app/api/api_key.dart';
+import 'package:weather_forecast_app/data/api/api_key.dart';
 
 String apiUrl(var lat, var lon) {
   String url =

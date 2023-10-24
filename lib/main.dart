@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:weather_forecast_app/presentation/pages/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor:
+        Color.fromARGB(255, 255, 255, 255), // Change this to your desired color
+  ));
 }
 
 class MyApp extends StatelessWidget {
